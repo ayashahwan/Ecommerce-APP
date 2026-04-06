@@ -4,31 +4,33 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ecommerce APP</title>
-  
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
   <div id="buyer-page" class="active">
     <header>
       <button id="switch-to-seller">SELLER</button>
-      <input type="search" id="search-input" placeholder="Search...">
-      <!-- صورة للبحث -->
-       <div class="cart">
-        <i class="fas fa-shopping-cart"></i> <span id="cart-count">3</span>
-        <img><img>
+      <div class="header-left-side ">
+        <input type="search" id="search" placeholder="Search...">
+        <!-- صورة للبحث -->
+        <div class="cart">
+          <i class="fas fa-shopping-cart"></i> <span id="cart-count">3</span>
+        </div>
        </div>
     </header>
     <main>
       <aside>
         <h3>  Price </h3>
         <input type="range" id="price-filter" min="1" max="1000" value="1000">
-        <span>1 - 1000 $</span>
+        <span id="span">0 - <span id="price-value">100</span>$</span>
         <h3> Category </h3>
         <button class="category-activeBtn"> ALL </button>
         <button class="category"> Clothes </button>
         <button class="category"> Jewelry </button>
         <button class="category"> Electronics </button>
       </aside>
-      <section>
+      <section id="products">
 
 
       </section>
