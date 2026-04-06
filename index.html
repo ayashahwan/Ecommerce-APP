@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ecommerce APP</title>
+  
+</head>
+<body>
+  <div id="buyer-page" class="active">
+    <header>
+      <button id="switch-to-seller">SELLER</button>
+      <input type="search" id="search-input" placeholder="Search...">
+      <!-- صورة للبحث -->
+       <div class="cart">
+        <i class="fas fa-shopping-cart"></i> <span id="cart-count">3</span>
+        <img><img>
+       </div>
+    </header>
+    <main>
+      <aside>
+        <h3>  Price </h3>
+        <input type="range" id="price-filter" min="1" max="1000" value="1000">
+        <span>1 - 1000 $</span>
+        <h3> Category </h3>
+        <button class="category-activeBtn"> ALL </button>
+        <button class="category"> Clothes </button>
+        <button class="category"> Jewelry </button>
+        <button class="category"> Electronics </button>
+      </aside>
+      <section>
+
+
+      </section>
+    </main>
+  </div>  
+  <div id="seller-page" class="hidden">
+    <header>
+      <button id="switch-to-buyer">BUYER</button>
+      <h3>Sellers Section</h3>
+      <button id="add-product">Add New Product</button>
+    </header>
+    <main>
+      <table id="product-table">
+        <thead>
+          <tr>
+            <th> Image </th>
+            <th> Name </th>
+            <th> Details </th>
+            <th> Price </th>
+            <th> Category </th>
+            <th> Actions </th>
+          </tr>
+        </thead>
+        <tbody id="product-list">
+
+        </tbody>
+      </table>
+
+      <div id="add-item" class="item-hidden"></div>
+      <h3>Add Product</h3>
+      <form>
+        <input type="image" id="product-image" placeholder="image url">
+        <input type="text" id="product-name" placeholder="product name" required>
+        <textarea id="product-details" placeholder="details"></textarea>
+        <input type="number" id="product-price" placeholder="product price" required>
+        <label for="product-category">Category : </label>
+        <select id="product-category">
+          <option>Clothes</option>
+          <option>Jewelry</option>
+          <option>Electronics</option>
+        </select>
+        <button type="submit"> Add Item </button>
+      </form>
+    </main>
+
+  </div>
+</body>
+</html>
