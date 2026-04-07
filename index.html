@@ -19,7 +19,7 @@
         </div>
        </div>
     </header>
-    <main>
+    <main class="main">
       <aside>
         <h3>  Price </h3>
         <input type="range" id="price-filter" min="1" max="1000" value="1000">
@@ -32,16 +32,80 @@
       </aside>
       <section id="products">
 
+        <div class="product-card">
+          <img src="img/img3-removebg-preview.png" alt="T-shirt">
+          <h4> White T-shirt</h4>
+          <span class="price">25$</span>
+          <button class="add-to-cart-btn">add to cart</button>
+        </div>
+
+        <div class="product-card">
+          <img src="img/img2-removebg-preview.png" alt="T-shirt">
+          <h4>Red T-shirt</h4>
+          <span class="price">25$</span>
+          <button class="add-to-cart-btn">add to cart</button>
+        </div>
+
+        <div class="product-card">
+          <img src="img/img4-removebg-preview.png" alt="T-shirt">
+          <h4>Pink T-shirt</h4>
+          <span class="price">25$</span>
+          <button class="add-to-cart-btn">add to cart</button>
+        </div>
+
+        <div class="product-card">
+          <img src="img/img5-removebg-preview.png" alt="T-shirt">
+          <h4>Black T-shirt</h4>
+          <span class="price">25$</span>
+          <button class="add-to-cart-btn">add to cart</button>
+        </div>
+
+        <div class="product-card">
+          <img src="img/img8-removebg-preview.png" alt="T-shirt">
+          <h4>Dark Plue T-shirt</h4>
+          <span class="price">25$</span>
+          <button class="add-to-cart-btn">add to cart</button>
+        </div>
+
+        <div class="product-card">
+          <img src="img/img9-removebg-preview.png" alt="T-shirt">
+          <h4>Plue T-shirt</h4>
+          <span class="price">25$</span>
+          <button class="add-to-cart-btn">add to cart</button>
+        </div>
+
+        <div class="product-card">
+          <img src="img/img11-removebg-preview.png" alt="T-shirt">
+          <h4>Light Plue T-shirt</h4>
+          <span class="price">25$</span>
+          <button class="add-to-cart-btn">add to cart</button>
+        </div>
+
+        <div class="product-card">
+          <img src="img/img12-removebg-preview.png" alt="T-shirt">
+          <h4>Plue T-shirt</h4>
+          <span class="price">25$</span>
+          <button class="add-to-cart-btn">add to cart</button>
+        </div>
+
+        <div class="product-card">
+          <img src="img/img13-removebg-preview.png" alt="T-shirt">
+          <h4>Grey T-shirt</h4>
+          <span class="price">25$</span>
+          <button class="add-to-cart-btn">add to cart</button>
+        </div>
+
 
       </section>
     </main>
   </div>  
-  <div id="seller-page" class="hidden">
-    <header>
+  <div id="seller-page" class="">
+    <!-- لازم احط في الكلاس هيدين -->
+    <header style="background-color: #e3eefe;">
       <button id="switch-to-buyer">BUYER</button>
-      <h3>Sellers Section</h3>
-      <button id="add-product">Add New Product</button>
+      <h3 style="padding-right: 900px;">Sellers Section</h3>
     </header>
+    <button id="add-product">Add New Product</button>
     <main>
       <table id="product-table">
         <thead>
@@ -55,27 +119,39 @@
           </tr>
         </thead>
         <tbody id="product-list">
-
+          <tr>
+              <td><img src="img/img12-removebg-preview.png" class="table-img"></td>
+              <td>تيشرت قطني</td>
+              <td>وصف بسيط هنا...</td>
+              <td>25$</td>
+              <td>ملابس</td>
+              <td class="actions-btns">
+                <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                <button class="delete-btn"><i class="fas fa-trash"></i></button>
+              </td>
+          </tr>
+          
         </tbody>
       </table>
 
-      <div id="add-item" class="item-hidden"></div>
-      <h3>Add Product</h3>
-      <form>
-        <input type="image" id="product-image" placeholder="image url">
-        <input type="text" id="product-name" placeholder="product name" required>
-        <textarea id="product-details" placeholder="details"></textarea>
-        <input type="number" id="product-price" placeholder="product price" required>
-        <label for="product-category">Category : </label>
-        <select id="product-category">
-          <option>Clothes</option>
-          <option>Jewelry</option>
-          <option>Electronics</option>
-        </select>
-        <button type="submit"> Add Item </button>
-      </form>
+      <div id="add-item" class="item-hidden">
+        <h3>Add Product</h3>
+        <form class="form">
+          <input type="url" id="product-image" placeholder="image url">
+          <input type="text" id="product-name" placeholder="product name" required>
+          <textarea id="product-details" placeholder="details"></textarea>
+          <input type="number" id="product-price" placeholder="product price" required>
+          <label for="product-category">Category : </label>
+          <select id="product-category">
+            <option>Clothes</option>
+            <option>Jewelry</option>
+            <option>Electronics</option>
+          </select>
+          <button type="submit"> Add Item </button>
+        </form>
+      </div>
     </main>
-
   </div>
+  <script src="script.js"></script>
 </body>
 </html>
