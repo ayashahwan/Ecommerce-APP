@@ -177,7 +177,7 @@ aside .category-activeBtn {
   color: #2563EB;
   margin-bottom: 12px;
 }
-.product-card button {
+.add-to-cart-btn {
   font-size: 14px;
   font-weight: 600;
   margin-bottom: 8px;
@@ -188,7 +188,7 @@ aside .category-activeBtn {
   border: 1.5px solid #E2E8F0;
   transition: all 0.2s;
 }
-.product-card-button:hover{
+.add-to-cart-btn:hover{
   border-color: #2563ED;
   color:white;
   background-color: #2563ED;
