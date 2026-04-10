@@ -15,28 +15,36 @@
         <input type="search" id="search" placeholder="Search...">
         <!-- صورة للبحث -->
         <div class="cart">
-          <i class="fas fa-shopping-cart"></i> <span id="cart-count">3</span>
+          <i class="fas fa-shopping-cart"></i> <span id="cart-count"></span>
         </div>
        </div>
     </header>
+
+    <div id="cart-section" class="hidden">
+    <h3>Your Current Cart : </h3>
+    <ul id="cart-list"></ul>
+    <p id="total-price"></p>
+    </div>
+
     <main class="main">
       <aside>
         <h3>  Price </h3>
-        <input type="range" id="price-filter" min="1" max="1000" value="1000">
-        <span id="span">0 - <span id="price-value">100</span>$</span>
+        <input type="range" id="price-filter" min="1" max="1000" step="10" value="1000">
+        <span id="span">0 - <span id="price-value">1000</span>$</span>
+
         <h3> Category </h3>
-        <button class="category-activeBtn"> ALL </button>
-        <button class="category"> Clothes </button>
-        <button class="category"> Jewelry </button>
-        <button class="category"> Electronics </button>
+        <button class="category-activeBtn" onclick="handleCategoryClick('all',this)"> ALL </button>
+        <button class="category" onclick="handleCategoryClick('clothes',this)"> Clothes </button>
+        <button class="category" onclick="handleCategoryClick('jewelry',this)"> Jewelry </button>
+        <button class="category" onclick="handleCategoryClick('electronics',this)"> Electronics </button>
       </aside>
       <section id="products">
 
-        <div class="product-card">
+        <!-- <div class="product-card">
           <img src="img/img3-removebg-preview.png" alt="T-shirt">
           <h4> White T-shirt</h4>
           <span class="price">25$</span>
-          <button class="add-to-cart-btn">add to cart</button>
+          <button class="add-to-cart-btn" ">add to cart</button>
         </div>
 
         <div class="product-card">
@@ -94,13 +102,12 @@
           <span class="price">25$</span>
           <button class="add-to-cart-btn">add to cart</button>
         </div>
-
+ -->
 
       </section>
     </main>
   </div>  
-  <div id="seller-page" class="">
-    <!-- لازم احط في الكلاس هيدين -->
+  <div id="seller-page" class="hidden">
     <header style="background-color: #e3eefe;">
       <button id="switch-to-buyer">BUYER</button>
       <h3 style="padding-right: 900px;">Sellers Section</h3>

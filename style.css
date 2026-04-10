@@ -14,6 +14,9 @@ body{
 .hidden{
   display: none !important;
 }
+.item-hidden {
+  display: none !important;
+}
 header{
   background-color: white;
   padding:0 ;
@@ -299,4 +302,9 @@ th {
 }
 .form button:hover{
   background-color: #007bff;
+}
+@media (max-width: 768px) {
+  .main { flex-direction: column; }
+  aside { width: 100%; }
+  .header-left-side { width: 70%; }
 }
