@@ -14,23 +14,31 @@
       <div class="header-left-side ">
         <input type="search" id="search" placeholder="Search...">
         <!-- صورة للبحث -->
-        <div class="cart">
+        <div class="cart"  onclick="toggleCart()">
           <i class="fas fa-shopping-cart"></i> <span id="cart-count"></span>
         </div>
        </div>
     </header>
 
-    <div id="cart-section" class="hidden">
-    <h3>Your Current Cart : </h3>
-    <ul id="cart-list"></ul>
-    <p id="total-price"></p>
+    <div id="cart-section" class="item-hidden">
+      <h3>Your Current Cart : </h3>
+      <ul id="cart-list"></ul>
+      <p id="total-price"></p>
+    </div>
+    <div class="view-toggle">
+      <button onclick="setView('grid', this)" class="view-btn active-view">
+        <i class="fas fa-th"></i>
+      </button>
+      <button onclick="setView('list', this)" class="view-btn">
+        <i class="fas fa-list"></i>
+      </button>
     </div>
 
     <main class="main">
       <aside>
         <h3>  Price </h3>
         <input type="range" id="price-filter" min="1" max="1000" step="10" value="1000">
-        <span id="span">0 - <span id="price-value">1000</span>$</span>
+        <span id="span">0 - <span id="price-value">991</span>$</span>
 
         <h3> Category </h3>
         <button class="category-activeBtn" onclick="handleCategoryClick('all',this)"> ALL </button>
@@ -126,18 +134,7 @@
           </tr>
         </thead>
         <tbody id="product-list">
-          <tr>
-              <td><img src="img/img12-removebg-preview.png" class="table-img"></td>
-              <td>تيشرت قطني</td>
-              <td>وصف بسيط هنا...</td>
-              <td>25$</td>
-              <td>ملابس</td>
-              <td class="actions-btns">
-                <button class="edit-btn"><i class="fas fa-edit"></i></button>
-                <button class="delete-btn"><i class="fas fa-trash"></i></button>
-              </td>
-          </tr>
-          
+
         </tbody>
       </table>
 
@@ -150,9 +147,9 @@
           <input type="number" id="product-price" placeholder="product price" required>
           <label for="product-category">Category : </label>
           <select id="product-category">
-            <option>Clothes</option>
-            <option>Jewelry</option>
-            <option>Electronics</option>
+            <option value="clothes">Clothes</option>
+            <option value="jewelry">Jewelry</option>
+            <option value="electronics">Electronics</option>
           </select>
           <button type="submit"> Add Item </button>
         </form>
@@ -160,5 +157,6 @@
     </main>
   </div>
   <script src="script.js"></script>
+  
 </body>
 </html>

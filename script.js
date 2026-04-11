@@ -57,7 +57,7 @@ const renderProducts=(products)=>{
       <td>${product.category}</td>
       <td>
         <button onclick="editProdact(${product.id})"><i class="fas fa-edit"></i></button>
-        <button onclick="deleteProduct(${product.id})"><i class="fas fa-trash"></i></button>
+        <button onclick="handleDelete(${product.id})"><i class="fas fa-trash"></i></button>
         <button class="add-to-cart-btn" onclick="handleAddToCart(${product.id})"></button>
       </td>
     </tr>
@@ -67,17 +67,17 @@ const renderProducts=(products)=>{
 
 // عرض المنتاجات للمشتري
 const renderBuyerProducts = (productList) => {
-  const section = document.getElementById("products") 
-  section.innerHTML =""
-  productList.forEach(product =>{
-        section.innerHTML += `
-          <div class="product-card">
-            <img src="${product.image}" alt="${product.name}" onerror="this.style.display='none'">
-            <h4>${product.name}</h4>
-            <span class="price">${product.price}$</span>
-            <button class="add-to-cart-btn" onclick="handleAddToCart(${product.id})">Add to cart</button>
-          </div>
-          `
+  const section = document.getElementById("products")
+  section.innerHTML = ""
+  productList.forEach(product => {
+    section.innerHTML += `
+      <div class="product-card ${currentView === 'list' ? 'list-card' : ''}">
+        <img src="${product.image}" alt="${product.name}" onerror="this.style.display='none'">
+        <h4>${product.name}</h4>
+        <span class="price">${product.price}$</span>
+        <button class="add-to-cart-btn" onclick="handleAddToCart(${product.id})">Add to cart</button>
+      </div>
+    `
   })
 } 
 
@@ -160,7 +160,7 @@ document.getElementById("add-product").addEventListener("click", () => {
     // فلترةالمنتاجات حسب القيمة المحددة
     const filtered = filterByPrice(products,price)
     // عرض المفلتر حسب السعر المحدد
-    renderProducts(filtered)
+    renderBuyerProducts(filtered)
   })
 
   // add to cart function (pure function)
@@ -174,6 +174,17 @@ document.getElementById("add-product").addEventListener("click", () => {
     return[...cart.slice(0,index),...cart.slice(index+1)]
   }
 
+  // لاظهار المنتجات اما في شكل grid او list
+let currentView = "grid"
+
+const setView = (view, btn) => {
+  currentView = view
+  const section = document.getElementById("products")
+  section.classList.toggle("list-view", view === "list")
+  document.querySelectorAll(".view-btn").forEach(b => b.classList.remove("active-view"))
+  btn.classList.add("active-view")
+  renderBuyerProducts(products)
+}
   // مصفوفة السلة هيتم تخزين فيها البروداكتس اللي هنضيفهم الها
 let cart = JSON.parse(localStorage.getItem("cart")) || []
 
@@ -194,26 +205,52 @@ const handleDeleteFromCart = (productId) =>{
   renderCart()
 }
 
+// لاخفاء المنتاجات في السلة وسعرها او اظهارها
+const toggleCart = () => {
+  const cartSection = document.getElementById("cart-section")
+  const mainSection = document.querySelector(".main")
+  
+  cartSection.classList.toggle("item-hidden")
+  mainSection.classList.toggle("item-hidden")
+}
+
+let cartView = "list"  
+
+const setCartView = (view, btn) => {
+  cartView = view
+  document.querySelectorAll(".view-btn").forEach(b => b.classList.remove("active-view"))
+  btn.classList.add("active-view")
+  renderCart()
+}
+
 const renderCart = () => {
   const cartList = document.getElementById("cart-list")
   const totalPrice = document.getElementById("total-price")
   const cartCount= document.getElementById("cart-count")
   cartList.innerHTML = ""
   // قائمة المنتاجات باسعارها
-  cart.forEach((item) => {
-    cartList.innerHTML += `<li>${item.name} - ${item.price}</li>`
-  });
-  // حساب السعر الإجمالي
-  const total = calculateTotal(cart)
-  totalPrice.innerText = ` Total Price: ${total}$`
-  cartCount.innerText = `(${cart.length})`
-}
+   cartList.className = cartView === "grid" ? "cart-grid" : "cart-list-view"
 
-const searchBtn = document.getElementById("search")
-searchBtn.addEventListener("input", (e) => {
-  const filtered = search(products, e.target.value)
-  renderBuyerProducts(filtered)
-});
+  cart.forEach((item, index) => {
+    cartList.innerHTML += `
+      <li class="cart-item">
+        <img src="${item.image}" alt="${item.name}" >
+        <div class="cart-item-info">
+          <h4>${item.name}</h4>
+          <p>${item.details}</p>
+          <span class="cart-category">${item.category}</span>
+          <span class="price">${item.price}$</span>
+        </div>
+        <button onclick="handleDeleteFromCart(${index})" class="delete-btn">
+          <i class="fas fa-trash"></i>
+        </button>
+      </li>
+    `
+  })
+
+  totalPrice.innerText = `Total Price: ${calculateTotal(cart)}$`
+  cartCount.innerText  = cart.length
+}
 
 let editingId = null
 

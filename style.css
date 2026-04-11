@@ -303,6 +303,38 @@ th {
 .form button:hover{
   background-color: #007bff;
 }
+.view-toggle {
+  display: flex;
+  gap: 8px;
+  padding: 12px 24px;
+}
+.view-btn {
+  padding: 8px 12px;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.active-view {
+  background: #2563EB;
+  color: white;
+  border-color: #2563EB;
+}
+#products.list-view {
+  grid-template-columns: 1fr;
+}
+#products.list-view .list-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  text-align: left;
+}
+#products.list-view .list-card img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
 @media (max-width: 768px) {
   .main { flex-direction: column; }
   aside { width: 100%; }
